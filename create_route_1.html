@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/images/favicon-32x32.png" sizes="32x32">
+
+    <title>Create Route 1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/project_files/ControlFullScreen_1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.5/dist/geosearch.css" />
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+        integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+        crossorigin="">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- Standard CSS & JavaScript -->
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/common/global.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/common/loading.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/bootstrap-3.3.7/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/libraries/bootstrap-table-1.16.0/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/libraries/bootstrapValidator-0.5.1/bootstrapValidator.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/select2/select2-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/project_files/headerfooter.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/project_files/create_route_1.css">
+    <script src="../static/js/libraries/jquery-2.1.3/jquery-2.1.3.min.js"></script>
+    <script src="../static/js/libraries/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="../static/js/libraries/bootstrap-table-1.16.0/bootstrap-table.min.js"></script>
+
+    <!--   <script src="/static/js/tableExport.js"></script>
+  <script src="/static/js/bootstrap-table-export.js"></script>
+ -->
+    <script src="../static/js/libraries/bootstrapValidator-0.5.1/bootstrapValidator.min.js"></script>
+    <script src="../static/js/libraries/select2/select2.min.js"></script>
+    <script src="../static/js/libraries/common/common.js"></script>
+
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="displayNone">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <!-- header Starts -->
+    <nav class="navbar">
+        <div class="dtplus-border">
+
+            <!-- logo and top bar -->
+            <div class="cargofl-header flex-container">
+                <span class="flex-item-3">
+                    <img src="../static/images/logo.png" class="pull-left cargofl-site-logo">
+                </span>
+                <span class="flex-item-3">
+                    <span class="cargofl-site-title"></span>
+                </span>
+                <span class="flex-item-3">
+                    <div class="pull-right cargofl-header-text">
+
+                    </div>
+                    <div id="contact" class="collapse pull-right">
+                        <code>contact@innoctive.com / +91 - 83290 83054</code>
+                    </div>
+                </span>
+            </div>
+
+            <!-- menu bar -->
+            <div>
+                <ul class="nav navbar-nav cargofl-menubar">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="/trip-board"><i class="fa fa-home"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Operations <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/trip-board">Tripboard</a></li>
+                            <li><a href="/route-planning">Route Planning</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Master <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/metadata">Metadata</a></li>
+                            <!-- <li><a href="comingsoon.html">Rate</a></li> -->
+                            <li><a href="/resource">Resources</a></li>
+                        </ul>
+                    </li>
+
+
+                    <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Analytics <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="comingsoon.html">Vehicle Dashboard</a></li>            
+            <li><a href="comingsoon.html">Reports</a></li>
+          </ul>
+        </li> -->
+
+                    <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="comingsoon.html">Profile</a></li>
+            <li><a href="comingsoon.html">Eway Bill</a></li>
+            <li><a href="comingsoon.html">Wallet</a></li>
+            <li><a href="comingsoon.html">About Me</a></li>
+            <li><a href="comingsoon.html">Configurations</a></li>
+            <li><a href="comingsoon.html">Booking Configurations</a></li>
+            <li><a href="comingsoon.html">Payment Package</a></li>
+          </ul>
+        </li> -->
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Support <span
+                                class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="/contact-us">Contact Us</a></li>
+                            <!-- <li><a href="comingsoon.html">FAQ's</a></li>
+            <li><a href="comingsoon.html">Trainings</a></li> -->
+                        </ul>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- header ends -->
+
+
+    <!-- Button HTML (to Trigger Modal) -->
+    <!-- <a href="#myModal1" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a> -->
+
+
+
+
+
+
+    <div class="row" style="width: 100%;padding-right: 10px !important; ">
+        <div class="col-lg-8">
+            <form id="create_route_form">
+                <div style="margin-bottom: 30px;margin-top: 30px; letter-spacing: 1px;margin-left: 23px;">
+                    <h4>Route Expense Template</h4>
+                </div>
+
+                <div class="row" style="margin-left: 7px;margin-right: 5px;margin-bottom: 5px;">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #337ab7; background: #CEE2F3;"><i
+                                            class="glyphicon glyphicon-road"></i></span>
+                                    <input name="route_name" id="route_name" placeholder="Enter a Route Name"
+                                        class="form-control" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"
+                                        style="color: #498834; background: #D4FFC5; font-size: 18px;"><i
+                                            class="glyphicon glyphicon-map-marker"></i></span>
+                                    <input name="start_point" id="start_point" placeholder="Start Point"
+                                        class="form-control" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"
+                                        style="color: #E91D1D; background: #FFC5C5; font-size: 18px;"><i
+                                            class="glyphicon glyphicon-map-marker"></i></span>
+                                    <input name="end_point" id="end_point" placeholder="End Point" class="form-control"
+                                        type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin: auto 0px; margin-top: 10px;">
+                    <div class="col-lg-4" style="padding-right: 3px;">
+                        <div class="form-group" style="margin-left: 10px;"> <label class="control-label">Notes</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group" style="width: 97%;"> <span
+                                        class="input-group-addon text-center"><i
+                                            class="glyphicon glyphicon-pencil"></i></span> <textarea
+                                        class="form-control" name="route_notes" id="route_notes" rows="2"
+                                        placeholder="Add Notes here.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label style="margin-top: 6px; margin-bottom: 10px;">Radius <span
+                                    style="font-size: 12px;">(in
+                                    meters)</span>:</label>
+                            <div class="input-group" style="width: 100%;">
+
+                                <input type="text" class="form-control" placeholder="Enter Circle Radius (in meters)"
+                                    id="radius" readonly onkeypress='return isNumberKey(event)' />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" id="edit_radius" type="button">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                    </button>
+
+                                    <button class="btn btn-primary hidden" type="button" id="submit_radius">
+                                        <i class="fa fa-unlock" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-3" style="margin-top: 7px;">
+                        <div class="form-group text-center"> <label class="control-label "
+                                style="letter-spacing: 0.6px;">Total
+                                Route Expense</label>
+                            <div class="text-center" style="font-size: 25px;letter-spacing: 3px;margin-top: 7px;"
+                                id="total_route_expense">
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- <div class="col-lg-3" style="margin-top: 7px;">
+                        <div class="form-group"> <label class="control-label" style="letter-spacing: 0.6px;">Total
+                                Checkpts</label>
+                            <div class="text-center style=" font-size: 25px;letter-spacing: 3px;margin-top: 7px; " id="
+                                total_checkpt"></div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+
+                <div id="main_content" class="container">
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary center-block" id="finish_route_planning_btn"
+                    style="margin-top: 15px; margin-bottom: 50px;letter-spacing: 1px;">Finish Route Planning</button>
+
+            </form>
+
+            <!-- col-md-8 endss -->
+        </div>
+
+
+        <div class="col-lg-4">
+            <div class="row" style="width: 100%; padding: 20px; padding-right: 10px !important;">
+                <div id="map"></div>
+            </div>
+
+            <div class="row" style="width: 100%;margin: 0px !important;">
+                <div class="row text-center" style="width: 100%; margin: 0px !important;padding-left: 40px;">
+                    <div class="col-lg-6">
+                        <div>
+                            <h4>Total Expense</h4>
+                        </div>
+                        <div>
+                            <h4><i class="fa fa-inr" aria-hidden="true"></i> <span id="total_exp"></span></h4>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div>
+                            <h4>Checkpoints</h4>
+                        </div>
+                        <div>
+                            <h4 id="tot_checkpt"></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center" style="width: 100%; margin: 20px 0px !important;padding-left: 40px;"
+                    id="total_expense_type_list">
+
+                    <!-- <div class="col-lg-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Extra Expense</div>
+                            <div class="panel-body"><i class="fa fa-inr" aria-hidden="true"></i> 1800</div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="letter-spacing: 0.8px;">Add Expense</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row" style="margin-left: 10px;margin-right: 5px;margin-top: 20px; margin-bottom: 25px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="pull-right"
+                                    style="font-weight: bolder;font-size: 15px;padding-top: 5px;letter-spacing: 0.5px;">
+                                    Expense Type :
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <select id="select" name="select" class="form-control" style="cursor: pointer;">
+                                        <option value="select" hidden>Select Expense Type</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="pull-right"
+                                    style="font-weight: bolder;font-size: 15px;padding-top: 5px;letter-spacing: 0.5px;">
+                                    Amount (in
+                                    Rs.) :
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control " name="expense" id="expense"
+                                        placeholder="&#8377; Enter Expense in Rs." required
+                                        onkeypress='return isNumberKey(event)'>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="add_expense_btn" data-dismiss="modal"
+                        style="letter-spacing: 0.8px;" onclick="addExpense()">Add
+                        Expense</button>
+                    <!-- <button type="button" class="btn btn-primary hidden" data-dismiss="modal" id="save_btn">save</button> -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close_modal"
+                        style="letter-spacing: 0.8px;">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- modal ends -->
+
+
+
+
+    <!-- ERROR Modal HTML -->
+    <div id="errorModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE5CD;</i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Ooops!</h4>
+                    <p id="error_text"></p>
+                    <button class="btn btn-success" data-dismiss="modal">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Footer Starts -->
+    <div class="cargofl-footer flex-container">
+        <span class="flex-item-3">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a>
+        </span>
+        <span class="flex-item-3 text-center">
+            CargoFL Version 1.1.2
+        </span>
+        <span class="flex-item-3 text-right">
+            Powered by CargoFL (Innoctive Technologies Pvt Ltd)
+        </span>
+    </div>
+    <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/project_files/geosearch.js"></script> -->
+    <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
+    <script src="../static/js/project_files/ControlFullScreen.js"></script>
+    <script type="module" src="https://unpkg.com/leaflet-geosearch@3.0.5/dist/geosearch.umd.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.3/dist/esri-leaflet.js"
+        integrity="sha512-K0Vddb4QdnVOAuPJBHkgrua+/A9Moyv8AQEWi0xndQ+fqbRfAFd47z4A9u1AW/spLO0gEaiE1z98PK1gl5mC5Q=="
+        crossorigin=""></script>
+
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+        integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+        crossorigin=""></script>
+
+
+    <script type="text/javascript" src="../static/js/constants/validation_message.js"></script>
+    <script type="text/javascript" src="../static/js/constants/api_end_points.js"></script>
+    <script type="text/javascript" src="../static/js/constants/html_page_end_points.js"></script>
+    <script type="text/javascript" src="../static/js/libraries/QuickAccord.js"></script>
+    <script type="text/javascript" src="../static/js/libraries/QuickAccord.min.js"></script>
+
+    <script type="module">
+
+        // $(".accordion-trigger").QuickAccord();
+        // you want to get it of the window global
+        const provider = new GeoSearch.OpenStreetMapProvider();
+
+        // Either get GeoSearch from the window global, or import from `leaflet-geosearch`
+        // import * as GeoSearch from 'leaflet-geosearch';
+
+        var map = L.map('map', {
+            fullscreenControl: true,
+            fullscreenControlOptions: {
+                position: 'topleft',
+            },
+            zoomDelta: 0.25,
+            zoomSnap: 0
+        }).setView([19.1590, 72.9986], 12);
+
+        // var map = L.map('map').setView([19.1590, 72.9986], 12);
+        var attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+        // Create a Tile Layer and add it to the map
+        var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution }).addTo(map);
+
+
+        const search = new GeoSearch.GeoSearchControl({
+            provider: new GeoSearch.OpenStreetMapProvider(),
+            style: 'bar',
+            autoComplete: true, // optional: true|false  - default true
+            autoCompleteDelay: 250,
+            showMarker: false, // optional: true|false  - default true
+            showPopup: false, // optional: true|false  - default false
+            marker: {
+                // optional: L.Marker    - default L.Icon.Default
+                icon: new L.Icon.Default(),
+                draggable: false,
+            },
+            resultFormat: ({ result }) => result.label, // optional: function    - default returns result label
+            maxMarkers: 0, // optional: number      - default 1
+            retainZoomLevel: false, // optional: true|false  - default false
+            animateZoom: true, // optional: true|false  - default true
+            autoClose: true, // optional: true|false  - default false
+            searchLabel: 'Search Checkpoint', // optional: string      - default 'Enter address'
+            keepResult: false, // optional: true|false  - default false
+            updateMap: true, // optional: true|false  - default true
+        });
+
+        map.addControl(search);
+        var draggable = new L.Draggable(map);
+        draggable.enable();
+
+        map.on('click', onMapClick);
+
+        draggable.enable();
+        var expense_list_id = '';
+        var expense_id = 1;
+        var radius = 50;
+        var checkpt_count = 0;
+        var markers = new Array();
+        var popup = L.popup();
+
+        var expense_array = [];
+        var empty_expense = [];
+        var checkpt_array = [];
+        var checkpt_object = {};
+        var temp_marker = [];
+        var markers = [];
+        var marker_array = [];
+        var marker_object = {};
+        var marker_flag = 'true';
+        var circles_array = new Array();
+        var polyline_array = new Array();
+        var numItems = 0;
+
+        var geocodeService = L.esri.Geocoding.geocodeService();
+        // $("#total_route_expense").html("Rs. " + total_route_expense + "/-");
+        var checkpt_length = $('.panel').length;
+        // $("#total_checkpt").html(checkpt_length);
+
+        function onMapClick(e) {
+
+            draggable.enable();
+            $('#edit_radius').addClass("disabled");
+
+            if (radius != null && $('#radius').val() != '' && radius != 0) {
+                if (checkpt_count < 0) {
+                    checkpt_count = 0;
+
+                }
+                geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+                    if (error) {
+                        return;
+                    }
+                    var marker_address = result.address.Address + result.address.Block + result.address.City + ', ' + result.address.Subregion + ', ' + result.address.Region + ', ' + result.address.CountryCode;
+                    // L.marker(result.latlng).addTo(map).bindPopup(marker_address + '<br>' + "Pincode - " + result.address.Postal).openPopup();
+                    // popup
+                    //   .setLatLng(e.latlng)
+                    //   .setContent(marker_address + '<br>' + "Pincode - " + result.address.Postal)
+                    //   .openOn(map);
+
+                    // console.log(result);
+                    // if (checkpt_count == 0) {
+                    //   $('#start_point').val(marker_address);
+                    //   document.getElementById("end_point").value = '';
+                    //   $("#start_point").prop("readonly", false);
+                    //   $("#end_point").prop("readonly", true);
+
+                    // }
+                    // else if (checkpt_count > 0) {
+                    //   document.getElementById("end_point").value = '';
+                    //   $('#end_point').val(marker_address);
+                    //   $("#end_point").prop("readonly", false);
+                    // }
+
+
+
+                    // popup
+                    //   .setLatLng(e.latlng)
+                    //   .setContent("checkpoint " + (checkpt_count + 1))
+                    //   .openOn(map);
+
+                    var marker = new L.Marker(e.latlng).addTo(map).bindPopup(marker_address + '<br>' + "Pincode - " + result.address.Postal).openPopup();
+                    // console.log(e.latlng);
+                    // $('.leaflet-control-geosearch form .results').removeClass('active');
+                    // alert($('.leaflet-control-geosearch form').html());
+                    // $('.leaflet-control-geosearch form').removeClass('active');
+                    // $('.leaflet-control-geosearch form').removeClass('open');
+                    // $('.glass').val('');
+
+                    var circle = new L.circle(e.latlng, { radius: radius, color: 'red' }).addTo(map);
+                    // var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+                    map.addLayer(marker);
+                    map.addLayer(circle);
+                    // console.log(circle);
+                    circles_array[circle._leaflet_id] = circle;
+                    markers[marker._leaflet_id] = marker;
+                    // console.log(markers);
+                    // alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
+                    temp_marker = [];
+                    if (marker_array.length > 0) {
+                        for (var i = 0; i < marker_array.length; i++) {
+                            if (marker_array[i][0] == e.latlng.lat && marker_array[i][1] == e.latlng.lng) {
+                                $('#error_text').html("Marker Already Exist at [" + e.latlng.lat + ", " + e.latlng.lng + "]");
+                                $('#errorModal').modal('show');
+                                // alert("Marker Already Exist at [" + e.latlng.lat + ", " + e.latlng.lng + "]");
+                                marker_flag = 'false';
+                            }
+                        }
+                        if (marker_flag == 'true') {
+                            // alert("FOr Loop True");
+                            temp_marker.push(e.latlng.lat);
+                            temp_marker.push(e.latlng.lng);
+                            // console.log("FOR LOOP Temp Marker Array -> " + temp_marker);
+                            marker_array.push(temp_marker);
+                            // console.log("FOR LOOP Marker Array -> " + marker_array);
+                        }
+                    }
+                    else if (marker_array.length == 0) {
+                        // alert("else length==0");
+                        temp_marker.push(e.latlng.lat);
+                        temp_marker.push(e.latlng.lng);
+                        // console.log("Temp Marker Array -> " + temp_marker);
+                        marker_array.push(temp_marker);
+                        // console.log("Marker Array -> " + marker_array);
+                    }
+
+                    // console.log(marker_array);
+
+                    var polyline = L.polyline(marker_array, { color: 'red' }).addTo(map);
+                    map.addLayer(polyline);
+                    polyline_array[polyline._leaflet_id] = polyline;
+
+                    // zoom the map to the polyline    
+                    if (checkpt_count > 0) {
+                        map.fitBounds(polyline.getBounds());
+
+                    }
+                    // $('#accordion_ul').append('<li>Marker ' + marker._leaflet_id + ' - <a href="#" class="remove" id="' + marker._leaflet_id + '">remove</a></li>');
+
+                    $('#main_content').append('<div class="panel panel-default" id="' + (checkpt_count + 1) + '">\
+                        <form method="POST" id="form'+ (checkpt_count + 1) + '">\
+                        <div class= "row">\
+                            <div class="col-lg-8">\
+                                <div style="font-weight: bold; letter-spacing: 0.6px;font-size: 14px;display: flex;padding-top: 5px;">\
+                                    <img src="../static/images/gmap.png" width="18" height="18" style="margin-right: 10px;" />\
+                                    <span class="acc_title" id="'+ e.latlng.lat + 'd' + e.latlng.lng + '">' + marker_address + '</span>\
+                                </div>\
+                            </div>\
+                            <div class="col-lg-4 " style="display: flex; padding-right: 5px ; padding-left: 50px;">\
+                                <div style="padding-top: 3px;">\
+                                    <input type="time" class="offset_time" name="offset_time" id="offset_time'+ (checkpt_count + 1) + '" style="border: none;box-shadow: none; width: 100%;">\
+                                </div>\
+                                <a href="#myModal" data-toggle="modal" data-target="#myModal" style="text-decoration: none;">\
+                                <div class="btn-sm btn-success" id="add_expense_'+ (checkpt_count + 1) + '" onclick="setExpenseListId(\'expense_list' + (checkpt_count + 1) + '\');" style="letter-spacing: 0.6;font-weight: bold;margin-left: 20px;margin-right: 20px;">\
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Add Expense</div>\
+                                    </a>\
+                                <div class="btn btn-sm btn-danger remove" style="letter-spacing: 1px;font-weight: bolder" id="' + marker._leaflet_id + 'd' + circle._leaflet_id + 'm' + polyline._leaflet_id + 'c' + (checkpt_count + 1) + '">\
+                                    <i class="fa fa-minus" aria-hidden="true"></i></div>\
+                            </div>\
+                        </div>\
+                        <div class="row" id="expense_list'+ (checkpt_count + 1) + '"></div >\
+                        </form>\
+                        </div>');
+
+                    numItems = 0;
+                    numItems += $('.checkpt_panel').length;
+                    // alert(numItems);
+                    // if (numItems > 0) {
+                    //   $('#finish_route_planning_btn').removeClass('hidden');
+                    // }
+
+
+
+                    // var checkpt_length = $('.checkpt_panel').length;
+                    // $("#total_checkpt").html(checkpt_length);
+                    console.log(marker._leaflet_id + 'd' + circle._leaflet_id + 'm' + polyline._leaflet_id + 'c' + (checkpt_count + 1));
+                    // alert($('#' + marker._leaflet_id + 'd' + circle._leaflet_id + 'm' + polyline._leaflet_id + 'c' + (checkpt_count + 1)).html());
+                    // Remove a marker
+                    $('#' + marker._leaflet_id + 'd' + circle._leaflet_id + 'm' + polyline._leaflet_id + 'c' + (checkpt_count + 1)).on("click", function () {
+                        // checkpt_count -= 1;
+
+                        // 51d55m58c1
+                        var leaflet_id = $(this).attr('id');
+
+                        var n = leaflet_id.indexOf("d");
+                        var t = leaflet_id.indexOf("m");
+                        var c = leaflet_id.indexOf("c");
+                        var end = leaflet_id.length - 1;
+                        var marker_leaflet_id = leaflet_id.slice(0, n);
+                        var circle_leaflet_id = leaflet_id.slice(n + 1, t);
+                        var polyline_leaflet_id = leaflet_id.slice(t + 1, c);
+                        var panel_id = leaflet_id.slice(c + 1);
+
+                        var form_data = [];
+                        // alert(panel_id);
+                        form_data = $('#form' + panel_id).serializeArray();
+                        // alert("Hello");
+                        // console.log(form_data);
+                        var j = 0;
+                        // var expense_array = [];
+
+                        while (j < form_data.length) {
+                            // alert("hii");
+                            var expense_object = {};
+                            if (form_data[j].name == "expense_type" && form_data[j + 1].name == "expense_amount") {
+                                expense_object.expense_amount = form_data[j + 1].value;
+                                expense_object.expense_type = form_data[j].value;
+
+                                var exp = parseInt(form_data[j + 1].value);
+
+                                // alert("object expense > " + exp);
+                                var old_exp = parseInt($('span[id="' + form_data[j].value + '_total"]').html());
+                                if (isNaN(old_exp) || old_exp == undefined) {
+                                    old_exp = 0;
+                                }
+
+                                // alert("old exp > " + old_exp);
+                                // alert("Exp -> " + exp);
+                                if (old_exp > exp) {
+                                    var tot_expense = old_exp - exp;
+
+                                }
+                                else if (exp > old_exp) {
+                                    var tot_expense = exp - old_exp;
+                                }
+                                // alert(tot_expense);
+                                if (tot_expense <= 0 || tot_expense == undefined) {
+                                    tot_expense = 0;
+                                    $('div[id="' + form_data[j].value + '"]').addClass('hidden');
+                                }
+
+                                $('span[id="' + form_data[j].value + '_total"]').html(tot_expense);
+                                // $('div[id="' + form_data[j].value + '"]').removeClass('hidden');
+                                // expense_array.push(expense_object);
+
+                                j += 2;
+                            }
+                            else if (form_data[j].name == "offset_time") {
+                                // time = form_data[j].value;
+                                j += 1;
+                            }
+
+
+                        }
+
+
+
+                        $(this).parents('.panel').remove();
+                        calcExpense();
+                        // $("#" + panel_id).remove();
+
+                        // alert(marker_leaflet_id);
+                        // alert(circle_leaflet_id);
+                        // alert(polyline_leaflet_id);
+                        // alert(marker_leaflet_id);
+                        // alert(panel_id);
+                        // console.log(markers[marker_leaflet_id]._latlng.lng);
+                        // alert("Lat, Lng -> [" + markers[marker_leaflet_id]._latlng.lat + ", " + markers[marker_leaflet_id]._latlng.lng + "]");
+                        // alert(marker_leaflet_id);
+                        // console.log("MARkER REMOVE ARRAY");
+                        // console.log(markers)
+                        for (var i = 0; i < marker_array.length; i++) {
+                            if ((markers[marker_leaflet_id]._latlng.lat == marker_array[i][0]) && (markers[marker_leaflet_id]._latlng.lng == marker_array[i][1])) {
+                                marker_array.splice(i, 1);
+                            }
+                        }
+
+                        // console.log("in Remove" + marker_array.length);
+                        // var polyline = L.polyline(marker_array, { color: 'blue' }).addTo(map);
+
+
+                        // Remove the marker and Cirlce
+                        map.removeLayer(markers[marker_leaflet_id]);
+                        map.removeLayer(circles_array[circle_leaflet_id]);
+                        map.removeLayer(polyline_array[polyline_leaflet_id]);
+
+
+
+
+
+
+                        // Remove the marker from the array
+                        delete markers[marker_leaflet_id];
+                        delete circles_array[circle_leaflet_id];
+                        delete polyline_array[polyline_leaflet_id];
+
+
+                        draggable.enable();
+                        $('#tot_checkpt').html($('.panel-default').length);
+
+                    });
+
+                    // polyline.on('dblclick', function (e) {
+                    //   map.removeLayer(this);
+                    // });
+
+                    draggable.enable();
+                    checkpt_count += 1;
+                    $('#tot_checkpt').html($('.panel-default').length);
+                });
+            }
+
+            else {
+                $('#error_text').html(ERROR_EMPTY_RADIUS);
+                $('#errorModal').modal('show');
+                // alert(enter_radius);
+
+            }
+
+        }
+
+        function isEmpty(el) {
+            return !$.trim(el.html())
+        }
+
+
+        $(document).ready(function () {
+
+
+
+            $('#radius').val(radius);
+
+            var login_data = JSON.parse(localStorage.getItem('login_data'));
+
+            $('.cargofl-header-text').html('Welcome, <b>' + login_data.user_name + '</b>&nbsp;<br />\
+            <a alt="Logout" style="cursor: pointer;" href="/cloud"><img class="pull-right" style="height: 20px;" src="../static/images/logout.png"></img></a>');
+
+            $('#edit_radius').click(function () {
+                if ($(".panel-default").length == 0) {
+
+                    $('#edit_radius').removeClass("disabled");
+                    $('#edit_radius').addClass("hidden");
+                    $('#submit_radius').removeClass("hidden");
+                    $("#radius").prop("readonly", false);
+                }
+
+            });
+
+            $('#submit_radius').click(function () {
+                radius = 0;
+                var y = $('#radius').val();
+
+                if (y != '') {
+                    var x = parseInt(y);
+                    radius += x;
+                    $('#submit_radius').addClass("hidden");
+                    $('#edit_radius').removeClass("hidden");
+                    $("#radius").prop("readonly", true);
+                }
+                else {
+                    $('#errorModal').modal('show');
+                    $('#error_text').html(ERROR_INVALID_RADIUS);
+                    // alert(invalid_radius);
+                }
+
+                // circles_array.forEach(changeRadius);
+
+            });
+
+
+
+
+            var expense_data = JSON.stringify({
+                "metadata_type": "ExpenseType",
+                "franchise_id": login_data.franchise_id
+            });
+
+            $.ajax({
+                type: "POST",
+                url: base_url + get_metadata_by_type,
+                data: expense_data,
+                contentType: 'application/json',
+                success: function (data) {
+
+                    if (data['code'] == "000") {
+                        console.log(data);
+                        for (var i = 0; i < data.data.length; i++) {
+                            $('#select').append('<option value="' + data.data[i].element + '" >' + data.data[i].element + '</option>');
+                            metadata_expense.push(data.data[i].element);
+                            $('#total_expense_type_list').append('<div class="col-lg-4 hidden" id="' + data.data[i].element + '">\
+                            <div class="panel panel-info">\
+                            <div class="panel-heading">' + data.data[i].element + '</div>\
+                            <div class="panel-body"><i class="fa fa-inr" aria-hidden="true"></i> <span id="' + data.data[i].element + '_total">0</span>/-</div>\
+                            </div>\
+                            </div>');
+
+
+                        }
+
+                        // alert();
+                    } else {
+                        $('#error_text').html(data.message);
+                        $('#errorModal').modal('show');
+                        // alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    $('#error_text').html(data.responseJSON.message);
+                    $('#errorModal').modal('show');
+                    // alert(data.responseJSON.message);
+                }
+            });
+
+
+
+
+
+
+
+            $("#create_route_form").submit(function (event) {
+                event.preventDefault();
+                var present_empty_expense_list = false;
+                var time = '';
+                // alert($('.panel-default').length);
+                if ($('.panel-default').length == 0) {
+                    $('#error_text').html("Please add atleast 1 Checkpoint");
+                    $('#errorModal').modal('show');
+
+                    // alert();
+                }
+
+                else {
+
+
+                    for (var i = 0; i < $('.panel-default').length; i++) {
+                        var form_data = [];
+                        form_data = $('#form' + (i + 1)).serializeArray();
+                        // alert("Hello");
+                        // console.log("FORM DATA");
+                        // console.log(form_data);
+                        var j = 0;
+                        var expense_array = [];
+
+                        while (j < form_data.length) {
+                            var expense_object = {};
+                            if (form_data[j].name == "expense_type" && form_data[j + 1].name == "expense_amount") {
+                                expense_object.expense_amount = form_data[j + 1].value;
+                                expense_object.expense_type = form_data[j].value;
+
+                                expense_array.push(expense_object);
+                                j += 2;
+                            }
+                            else if (form_data[j].name == "offset_time") {
+                                time = form_data[j].value;
+                                j += 1;
+                            }
+
+                        }
+
+
+
+                        var accordion_id = $("div.panel-default:eq(" + i + ")").attr('id');
+                        var accordion_title = $("div.panel-default:eq(" + i + ") form .row .col-lg-8 div").find('.acc_title').text();
+                        var accordion_latlng = $("div.panel-default:eq(" + i + ") form .row .col-lg-8 div").find('.acc_title').attr('id');
+                        // alert("id" + accordion_id + "\n title " + accordion_title + "\n latlng " + accordion_latlng);
+
+                        var n = accordion_latlng.indexOf("d");
+                        var accordion_lat = accordion_latlng.slice(0, n);
+                        var accordion_lng = accordion_latlng.slice(n + 1);
+
+
+                        if (time == null || time == "") {
+                            var offset_time = 0;
+                        }
+                        else {
+                            var timeParts = time.split(":");
+                            var offset_time = (+timeParts[0] * (60000 * 60)) + (+timeParts[1] * 60000);
+                        }
+
+                        // alert(offset_time);
+
+                        // console.log(expense_array);
+                        if (expense_array.length == 0) {
+                            present_empty_expense_list = true;
+                        }
+
+
+
+
+                        checkpt_object.route_checkpoint_name = accordion_title;
+                        checkpt_object.latitude = accordion_lat;
+                        checkpt_object.longitude = accordion_lng;
+                        checkpt_object.notes = "";
+                        checkpt_object.sequence_number = i + 1;
+                        checkpt_object.offset_in_millis = offset_time;
+                        checkpt_object.expenses = expense_array;
+
+                        checkpt_array.push(checkpt_object);
+                        checkpt_object = {};
+
+                        // for loop ends
+                    }
+
+                    // console.log(checkpt_array);
+                    // alert(present_empty_expense_list);
+                    if (present_empty_expense_list == false) {
+                        var data_to_send = JSON.stringify({
+                            "route_name": $('#route_name').val(),
+                            "start_point": $('#start_point').val(),
+                            "end_point": $('#end_point').val(),
+                            "notes": $('#route_notes').val(),
+                            "login_id": login_data.login_id,
+                            "franchise_id": login_data.franchise_id,
+                            "checkpoints": checkpt_array,
+                            "geofencing_radius": parseInt($('#radius').val())
+                        });
+                        // console.log("DATA TO SEND");
+                        // console.log(data_to_send);
+
+                        $.ajax({
+                            type: "POST",
+                            url: base_url + create_route,
+                            data: data_to_send,
+                            contentType: 'application/json',
+                            beforeSend: function () {
+                                $('#preloader').removeClass('displayNone');
+                                $('#status').show();
+                            },
+                            complete: function () {
+                                $('#status').fadeOut(); // will first fade out the loading animation 
+                                $('#preloader').delay(400).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                                $('body').delay(400).css({ 'overflow': 'visible' });
+                                $('#preloader').addClass('displayNone');
+                            },
+                            success: function (data) {
+
+                                if (data['code'] == "000") {
+                                    // alert(data.message);
+                                    // console.log(data);
+                                    localStorage.setItem("add_route", "true");
+                                    window.location.href = '/route-planning';
+
+                                } else {
+                                    localStorage.setItem("add_route", "false");
+                                    alert(data.message);
+                                }
+                            },
+                            error: function (data) {
+                                localStorage.setItem("add_route", "false");
+                                alert(data.responseJSON.message);
+                                // alert("ERROR : Contact Administrator");
+                            }
+                        });
+                    }
+                    else {
+                        $('#error_text').html("Expense List Can't be empty");
+                        $('#errorModal').modal('show');
+                        // alert();
+                    }
+
+
+                }
+
+            });
+
+            // document ready ends
+        });
+
+
+
+        // create a fullscreen button and add it to the map
+        L.control.fullscreen({
+            position: 'bottomright', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
+            title: 'Window fullscreen', // change the title of the button, default Full Screen
+            titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
+            content: null, // change the content of the button, can be HTML, default null
+            forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
+            forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+            fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+        }).addTo(map);
+
+    // events are fired when entering or exiting fullscreen.
+    // map.on('enterFullscreen', function () {
+    //   console.log('entered fullscreen');
+    // });
+
+    // map.on('exitFullscreen', function () {
+    //   console.log('exited fullscreen');
+    // });
+
+    // you can also toggle fullscreen from map object
+    // map.toggleFullScreen();
+
+    </script>
+    <script src="../static/js/project_files/create_route_1.js"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link rel="stylesheet" href="static/style.css"> -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <style>
+
+    </style>
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            </div>
+            <div class="col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab">
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <div class="row register-form" style="margin-top: 100px;">
+                            <div class="col-md-6">
+                                <div class="form-group" >
+                                    <form action="/getdata" id="login-form" method="POST">
+                                        <p>Enter the Latitude and Longitude of Start Point</p>
+                                        <input type="text" class="form-control" placeholder="Latitude *" value=""
+                                            name="Latitude" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Longitude *" value=""
+                                        name="Longitude" />
+                                </div>
+
+                                <div class="form-group">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>Enter the Latitude and Longitude of End Point</p>
+                                    <input type="text" class="form-control" placeholder="Latitude *" value=""
+                                        name="ELatitude" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Longitude *" value=""
+                                        name="ELongitude" />
+                                </div>
+                                <div class="form-group">
+                                </div>
+                                <input type="submit" class="btnRegister" value="Submit" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</html>

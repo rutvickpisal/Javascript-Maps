@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/images/favicon-32x32.png" sizes="32x32">
+
+    <title>Create Route 2</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- Standard CSS & JavaScript -->
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/common/global.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/common/loading.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/bootstrap-3.3.7/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/libraries/bootstrap-table-1.16.0/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../static/css/libraries/bootstrapValidator-0.5.1/bootstrapValidator.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/libraries/select2/select2-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/project_files/headerfooter.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/project_files/create_route_2.css">
+    <script src="../static/js/libraries/jquery-2.1.3/jquery-2.1.3.min.js"></script>
+    <script src="../static/js/libraries/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+    <!--   <script src="/static/js/tableExport.js"></script>
+  <script src="/static/js/bootstrap-table-export.js"></script>
+ -->
+    <script src="../static/js/libraries/bootstrapValidator-0.5.1/bootstrapValidator.min.js"></script>
+    <script src="../static/js/libraries/select2/select2.min.js"></script>
+    <script src="../static/js/libraries/common/common.js"></script>
+
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="displayNone">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <!-- header Starts -->
+    <nav class="navbar">
+        <div class="dtplus-border">
+
+            <!-- logo and top bar -->
+            <div class="cargofl-header flex-container">
+                <span class="flex-item-3">
+                    <img src="../static/images/logo.png" class="pull-left cargofl-site-logo">
+                </span>
+                <span class="flex-item-3">
+                    <span class="cargofl-site-title"></span>
+                </span>
+                <span class="flex-item-3">
+                    <div class="pull-right cargofl-header-text">
+
+                    </div>
+                    <div id="contact" class="collapse pull-right">
+                        <code>contact@innoctive.com / +91 - 83290 83054</code>
+                    </div>
+                </span>
+            </div>
+
+            <!-- menu bar -->
+            <div>
+                <ul class="nav navbar-nav cargofl-menubar">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="/trip-board"><i class="fa fa-home"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Operations <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/trip-board">Tripboard</a></li>
+                            <li><a href="/route-planning">Route Planning</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Master <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/metadata">Metadata</a></li>
+                            <!-- <li><a href="comingsoon.html">Rate</a></li> -->
+                            <li><a href="/resource">Resources</a></li>
+                        </ul>
+                    </li>
+
+
+                    <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Analytics <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="comingsoon.html">Vehicle Dashboard</a></li>            
+            <li><a href="comingsoon.html">Reports</a></li>
+          </ul>
+        </li> -->
+
+                    <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="comingsoon.html">Profile</a></li>
+            <li><a href="comingsoon.html">Eway Bill</a></li>
+            <li><a href="comingsoon.html">Wallet</a></li>
+            <li><a href="comingsoon.html">About Me</a></li>
+            <li><a href="comingsoon.html">Configurations</a></li>
+            <li><a href="comingsoon.html">Booking Configurations</a></li>
+            <li><a href="comingsoon.html">Payment Package</a></li>
+          </ul>
+        </li> -->
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Support <span
+                                class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="/contact-us">Contact Us</a></li>
+                            <!-- <li><a href="comingsoon.html">FAQ's</a></li>
+            <li><a href="comingsoon.html">Trainings</a></li> -->
+                        </ul>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- header ends -->
+
+
+    <!-- Button HTML (to Trigger Modal) -->
+    <!-- <a href="#myModal1" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a> -->
+
+
+
+
+
+
+    <div class="row" style="width: 100%;padding-right: 10px !important; ">
+        <div class="col-lg-8">
+            <form id="create_route_form">
+                <div style="margin-bottom: 30px;margin-top: 30px; letter-spacing: 1px;margin-left: 23px;">
+                    <h4>Route Expense Template</h4>
+                </div>
+
+                <div class="row" style="margin-left: 7px;margin-right: 5px;margin-bottom: 5px;">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #337ab7; background: #CEE2F3;"><i
+                                            class="glyphicon glyphicon-road"></i></span>
+                                    <input name="route_name" id="route_name" placeholder="Enter a Route Name"
+                                        class="form-control" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"
+                                        style="color: #498834; background: #D4FFC5; font-size: 18px;"><i
+                                            class="glyphicon glyphicon-map-marker"></i></span>
+                                    <input name="start_point" id="start_point" placeholder="Start Point"
+                                        class="form-control" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"
+                                        style="color: #E91D1D; background: #FFC5C5; font-size: 18px;"><i
+                                            class="glyphicon glyphicon-map-marker"></i></span>
+                                    <input name="end_point" id="end_point" placeholder="End Point" class="form-control"
+                                        type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin: auto 0px; margin-top: 10px;">
+                    <div class="col-lg-4" style="padding-right: 3px;">
+                        <div class="form-group" style="margin-left: 10px;"> <label class="control-label">Notes</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group" style="width: 97%;"> <span
+                                        class="input-group-addon text-center"><i
+                                            class="glyphicon glyphicon-pencil"></i></span> <textarea
+                                        class="form-control" name="route_notes" id="route_notes" rows="2"
+                                        placeholder="Add Notes here.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label style="margin-top: 6px; margin-bottom: 10px;">Radius <span
+                                    style="font-size: 12px;">(in
+                                    meters)</span>:</label>
+                            <div class="input-group" style="width: 100%;">
+
+                                <input type="text" class="form-control" placeholder="Enter Circle Radius (in meters)"
+                                    id="radius" readonly onkeypress='return isNumberKey(event)' />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" id="edit_radius" type="button">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                    </button>
+
+                                    <button class="btn btn-primary hidden" type="button" id="submit_radius">
+                                        <i class="fa fa-unlock" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-3" style="margin-top: 7px;">
+                        <div class="form-group text-center"> <label class="control-label "
+                                style="letter-spacing: 0.6px;">Total
+                                Route Expense</label>
+                            <div class="text-center" style="font-size: 25px;letter-spacing: 3px;margin-top: 7px;"
+                                id="total_route_expense">
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- <div class="col-lg-3" style="margin-top: 7px;">
+                        <div class="form-group"> <label class="control-label" style="letter-spacing: 0.6px;">Total
+                                Checkpts</label>
+                            <div class="text-center style=" font-size: 25px;letter-spacing: 3px;margin-top: 7px; " id="
+                                total_checkpt"></div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+
+                <div id="main_content" class="container">
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary center-block" id="finish_route_planning_btn"
+                    style="margin-top: 15px; margin-bottom: 50px;letter-spacing: 1px;">Finish Route Planning</button>
+
+            </form>
+
+            <!-- col-md-8 endss -->
+        </div>
+
+
+        <div class="col-lg-4">
+            <div class="row" style="width: 100%; padding: 20px; padding-right: 10px !important;">
+                <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+
+                <div id="map"></div>
+            </div>
+
+            <div class="row" style="width: 100%;margin: 0px !important;">
+                <div class="row text-center" style="width: 100%; margin: 0px !important;padding-left: 40px;">
+                    <div class="col-lg-6">
+                        <div>
+                            <h4>Total Expense</h4>
+                        </div>
+                        <div>
+                            <h4><i class="fa fa-inr" aria-hidden="true"></i> <span id="total_exp"></span></h4>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div>
+                            <h4>Checkpoints</h4>
+                        </div>
+                        <div>
+                            <h4 id="tot_checkpt"></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center" style="width: 100%; margin: 20px 0px !important;padding-left: 40px;"
+                    id="total_expense_type_list">
+
+                    <!-- <div class="col-lg-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Extra Expense</div>
+                            <div class="panel-body"><i class="fa fa-inr" aria-hidden="true"></i> 1800</div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="letter-spacing: 0.8px;">Add Expense</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row" style="margin-left: 10px;margin-right: 5px;margin-top: 20px; margin-bottom: 25px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="pull-right"
+                                    style="font-weight: bolder;font-size: 15px;padding-top: 5px;letter-spacing: 0.5px;">
+                                    Expense Type :
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <select id="select" name="select" class="form-control" style="cursor: pointer;">
+                                        <option value="select" hidden>Select Expense Type</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="pull-right"
+                                    style="font-weight: bolder;font-size: 15px;padding-top: 5px;letter-spacing: 0.5px;">
+                                    Amount (in
+                                    Rs.) :
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control " name="expense" id="expense"
+                                        placeholder="&#8377; Enter Expense in Rs." required
+                                        onkeypress='return isNumberKey(event)'>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="add_expense_btn" data-dismiss="modal"
+                        style="letter-spacing: 0.8px;" onclick="addExpense()">Add
+                        Expense</button>
+                    <!-- <button type="button" class="btn btn-primary hidden" data-dismiss="modal" id="save_btn">save</button> -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close_modal"
+                        style="letter-spacing: 0.8px;">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- modal ends -->
+
+
+
+
+    <!-- ERROR Modal HTML -->
+    <div id="errorModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE5CD;</i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Ooops!</h4>
+                    <p id="error_text"></p>
+                    <button class="btn btn-success" data-dismiss="modal">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Footer Starts -->
+    <div class="cargofl-footer flex-container">
+        <span class="flex-item-3">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a>
+        </span>
+        <span class="flex-item-3 text-center">
+            CargoFL Version 1.1.2
+        </span>
+        <span class="flex-item-3 text-right">
+            Powered by CargoFL (Innoctive Technologies Pvt Ltd)
+        </span>
+    </div>
+
+    <script type="text/javascript" src="../static/js/constants/validation_message.js"></script>
+    <script type="text/javascript" src="../static/js/constants/api_end_points.js"></script>
+    <script type="text/javascript" src="../static/js/constants/html_page_end_points.js"></script>
+    <script src="../static/js/project_files/create_route_2.js"></script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHvDZb_D3PGJ9k70xpLlTjLYgL9-ZgCG4&callback=initMap&libraries=places&v=weekly&sensor=true"
+        async></script>
+
+
+</body>
+
+
+</html>
